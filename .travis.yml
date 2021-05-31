@@ -1,0 +1,7 @@
+language: node_js
+cache: npm
+node_js:
+  - 14
+dist: focal
+script:
+  - npm run build

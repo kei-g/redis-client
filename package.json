@@ -1,0 +1,35 @@
+{
+  "author": {
+    "email": "km.8k6ce+npm@gmail.com",
+    "name": "kei-g"
+  },
+  "bugs": {
+    "url": "https://github.com/kei-g/redis-client"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "typescript": "^4.3.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "redis"
+  ],
+  "homepage": "https://github.com/kei-g/redis-client",
+  "license": "BSD-3-Clause",
+  "main": "dist/index.js",
+  "name": "@kei-g/redis-client",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kei-g/redis-client.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "version": "1.0.0"
+}

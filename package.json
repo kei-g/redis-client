@@ -4,7 +4,7 @@
     "name": "kei-g"
   },
   "bugs": {
-    "url": "https://github.com/kei-g/redis-client"
+    "url": "https://github.com/kei-g/redis-client/issues"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",

@@ -16,4 +16,7 @@
     "strict": true,
     "target": "ES5",
   },
+  "files": [
+    "./redis-client.ts",
+  ],
 }

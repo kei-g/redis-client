@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable indent */
+/* eslint-disable no-case-declarations */
 import { Socket } from 'net'
 
 /**
@@ -521,9 +525,9 @@ function parseReplyLine(context: RedisReplyContext): RedisReply {
       const data = context.data.slice(context.offset, context.offset + length)
       context.offset += length + 2
       const dataString = data.toString(context.charset)
-      if (/^[\+\-]?[0-9]+$/.test(dataString))
+      if (/^[\\+\\-]?[0-9]+$/.test(dataString))
         return Number.parseInt(dataString, 10)
-      if (/^[\+\-]?[0-9]*\.[0-9]+$/.test(dataString))
+      if (/^[\\+\\-]?[0-9]*\.[0-9]+$/.test(dataString))
         return Number.parseFloat(dataString)
       return dataString
     case '*':

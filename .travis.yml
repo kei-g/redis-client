@@ -3,5 +3,10 @@ cache: npm
 node_js:
   - 14
 dist: focal
+addons:
+  apt:
+    packages:
+      - redis-server
+    update: true
 script:
-  - npm run build
+  - npm test

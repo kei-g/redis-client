@@ -216,6 +216,26 @@ export class RedisClient {
     })
   }
 
+  append(key: string, value: string): Promise<number> {
+    return this.push('APPEND', key, value)
+  }
+
+  copy(source: string, destination: string): Promise<boolean> {
+    return this.push('COPY', source, destination, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  get dbsize(): Promise<number> {
+    return this.push('DBSIZE')
+  }
+
+  decr(key: string): Promise<boolean> {
+    return this.push('DECR', key, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  decrBy(key: string, decrement: number): Promise<Error | number> {
+    return this.push('DECRBY', key, decrement)
+  }
+
   del(key: string): Promise<boolean> {
     return this.push('DEL', key, (reply: Error | number) => !(reply instanceof Error) && reply)
   }
@@ -240,6 +260,10 @@ export class RedisClient {
     return this.push('EXPIRE', key, ttl, (reply: Error | number) => !(reply instanceof Error) && reply)
   }
 
+  expireAt(key: string, timestamp: number): Promise<boolean> {
+    return this.push('EXPIREAT', key, timestamp, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
   flushall(): Promise<Error | string> {
     return this.push('FLUSHALL')
   }
@@ -250,6 +274,14 @@ export class RedisClient {
 
   hget<T>(key: string, field: string): Promise<Error | T> {
     return this.push('HGET', key, field)
+  }
+
+  hdel(key: string, field: string): Promise<boolean> {
+    return this.push('HDEL', key, field, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  hexists(key: string, field: string): Promise<boolean> {
+    return this.push('HEXISTS', key, field, (reply: Error | number) => !(reply instanceof Error) && reply)
   }
 
   async hgetall(key: string): Promise<Record<string, RedisPrimitiveReply>> {
@@ -268,6 +300,14 @@ export class RedisClient {
     return this.push('HINCRBY', key, field, increment)
   }
 
+  hkeys(key: string): Promise<string[]> {
+    return this.push('HKEYS', key)
+  }
+
+  hlen(key: string): Promise<number> {
+    return this.push('HLEN', key)
+  }
+
   hmget(key: string, ...fields: string[]): Promise<RedisPrimitiveReply[]> {
     return this.push('HMGET', key, ...fields)
   }
@@ -284,12 +324,60 @@ export class RedisClient {
     return this.push('HSETNX', key, field, value, (reply: Error | number) => !(reply instanceof Error) && reply)
   }
 
+  hstrlen(key: string, field: string): Promise<number> {
+    return this.push('HSTRLEN', key, field)
+  }
+
   incr(key: string): Promise<number> {
     return this.push('INCR', key)
   }
 
   incrBy(key: string, count: number): Promise<number> {
     return this.push('INCRBY', key, count)
+  }
+
+  keys(pattern: string): Promise<string[]> {
+    return this.push('KEYS', pattern)
+  }
+
+  lindex(key: string, index: number): Promise<RedisPrimitiveReply> {
+    return this.push('LINDEX', key, index)
+  }
+
+  llen(key: string): Promise<number> {
+    return this.push('LLEN', key)
+  }
+
+  lpop(key: string): Promise<RedisPrimitiveReply> {
+    return this.push('LPOP', key)
+  }
+
+  lpush(key: string, element: string | number): Promise<Error | number> {
+    return this.push('LPUSH', key, element)
+  }
+
+  lpushx(key: string, element: string | number): Promise<boolean> {
+    return this.push('LPUSHX', key, element, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  lrange(key: string, start: number, stop: number): Promise<RedisPrimitiveReply[]> {
+    return this.push('LRANGE', key, start, stop)
+  }
+
+  lset(key: string, index: number, element: string | number): Promise<Error | string> {
+    return this.push('LSET', key, index, element)
+  }
+
+  mget(...keys: string[]): Promise<RedisPrimitiveReply[]> {
+    return this.push('MGET', ...keys)
+  }
+
+  mset(...keysAndValues: (string | number)[]): Promise<Error | string> {
+    return this.push('MSET', ...keysAndValues)
+  }
+
+  msetnx(...keysAndValues: (string | number)[]): Promise<boolean> {
+    return this.push('MSETNX', ...keysAndValues, (reply: Error | number) => !(reply instanceof Error) && reply)
   }
 
   multi(): Promise<boolean> {
@@ -302,16 +390,72 @@ export class RedisClient {
     this.listeners[event].push(listener as unknown as (() => void))
   }
 
+  persist(key: string): Promise<boolean> {
+    return this.push('PERSIST', key, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  get randomKey(): Promise<string> {
+    return this.push('RANDOMKEY')
+  }
+
+  rename(key: string, newKey: string): Promise<Error | string> {
+    return this.push('RENAME', key, newKey)
+  }
+
+  renamenx(key: string, newKey: string): Promise<boolean> {
+    return this.push('RENAMENX', key, newKey, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  rpop(key: string): Promise<RedisPrimitiveReply> {
+    return this.push('RPOP', key)
+  }
+
+  rpoplpush(source: string, destination: string): Promise<Error | string> {
+    return this.push('RPOPLPUSH', source, destination)
+  }
+
+  rpush(key: string, element: number | string): Promise<boolean> {
+    return this.push('RPUSH', key, element, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  rpushx(key: string, element: number | string): Promise<boolean> {
+    return this.push('RPUSHX', key, element, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
   sadd(key: string, member: number | string): Promise<Error | number> {
     return this.push('SADD', key, member)
+  }
+
+  scard(key: string): Promise<Error | number> {
+    return this.push('SCARD', key)
   }
 
   set(key: string, value: number | string): Promise<Error | string> {
     return this.push('SET', key, value)
   }
 
+  setex(key: string, seconds: number, value: string | number): Promise<Error | string> {
+    return this.push('SETEX', key, seconds, value)
+  }
+
+  setnx(key: string, value: string | number): Promise<boolean> {
+    return this.push('SETNX', key, value, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
+  sismember(key: string, member: string | number): Promise<boolean> {
+    return this.push('SISMEMBER', key, member, (reply: Error | number) => !(reply instanceof Error) && reply)
+  }
+
   smembers<T>(key: string): Promise<T[]> {
     return this.push('SMEMBERS', key)
+  }
+
+  spop(key: string): Promise<RedisPrimitiveReply> {
+    return this.push('SPOP', key)
+  }
+
+  srandmember(key: string): Promise<RedisPrimitiveReply> {
+    return this.push('SRANDMEMBER', key)
   }
 
   srem(key: string, member: number | string): Promise<boolean> {
@@ -326,8 +470,8 @@ export class RedisClient {
     return this.push('TTL', key)
   }
 
-  rpush(key: string, value: number | string): Promise<boolean> {
-    return this.push('RPUSH', key, value, (reply: Error | number) => !(reply instanceof Error) && reply)
+  type(key: string): Promise<string> {
+    return this.push('TYPE', key)
   }
 
   unwatch(): Promise<Error | string> {
@@ -346,8 +490,28 @@ export class RedisClient {
     return this.push('ZCARD', key)
   }
 
+  zcount(key: string, min: number | string, max: number | string): Promise<Error | number> {
+    return this.push('ZCOUNT', key, min, max)
+  }
+
+  zincrby(key: string, increment: number, member: string | number): Promise<Error | string> {
+    return this.push('ZINCRBY', key, increment, member)
+  }
+
+  zpopmax(key: string): Promise<RedisPrimitiveReply> {
+    return this.push('ZPOPMAX', key)
+  }
+
+  zpopmin(key: string): Promise<RedisPrimitiveReply> {
+    return this.push('ZPOPMIN', key)
+  }
+
   zrange<T>(key: string, start?: number, end?: number): Promise<Error | T[]> {
     return this.push('ZRANGE', key, start ?? 0, end ?? -1)
+  }
+
+  zrank(key: string, member: string | number): Promise<Error | number> {
+    return this.push('ZRANK', key, member)
   }
 
   zrem(key: string, member: number | string): Promise<Error | number> {

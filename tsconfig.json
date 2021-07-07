@@ -9,7 +9,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "newLine": "lf",
-    "outDir": "dist",
+    "outDir": "build",
     "pretty": true,
     "removeComments": true,
     "skipLibCheck": true,

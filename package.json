@@ -17,7 +17,8 @@
     "mocha": "^9.0.2",
     "nyc": "^15.1.0",
     "ts-node": "^10.0.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "uglify-js": "^3.13.10"
   },
   "files": [
     "dist"
@@ -37,7 +38,7 @@
     "url": "https://github.com/kei-g/redis-client.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && [ -d dist ] || mkdir dist && uglifyjs build/redis-client.js --compress --mangle -o dist/redis-client.js && cp build/redis-client.d.ts dist/",
     "cover": "nyc -r html -r text _mocha",
     "lint": "eslint *.ts",
     "prepublishOnly": "npm run build",

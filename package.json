@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/kei-g/redis-client/issues"
   },
+  "description": "Redis client which has minimal dependency",
   "devDependencies": {
     "@types/chai": "^4.2.21",
     "@types/mocha": "^8.2.3",

@@ -39,7 +39,7 @@
     "url": "https://github.com/kei-g/redis-client.git"
   },
   "scripts": {
-    "build": "tsc && [ -d dist ] || mkdir dist && terser build/redis-client.js --compress --mangle -o dist/redis-client.js && cp build/redis-client.d.ts dist/",
+    "build": "tsc && [ -d dist ] || mkdir dist && terser build/redis-client.js -c -m -o dist/redis-client.js --toplevel && cp build/redis-client.d.ts dist/",
     "clean": "rm -fr .nyc_output/ build/ coverage/ dist/",
     "cover": "nyc -r html -r text _mocha",
     "lint": "eslint *.ts",

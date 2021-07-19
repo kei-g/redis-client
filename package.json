@@ -39,11 +39,12 @@
     "url": "https://github.com/kei-g/redis-client.git"
   },
   "scripts": {
-    "build": "tsc && [ -d dist ] || mkdir dist && terser build/redis-client.js -c -m -o dist/redis-client.js --toplevel && cp build/redis-client.d.ts dist/",
+    "build": "tsc && npm run terse",
     "clean": "rm -fr .nyc_output/ build/ coverage/ dist/",
     "cover": "nyc -r html -r text _mocha",
     "lint": "eslint *.ts",
     "prepublishOnly": "npm run build",
+    "terse": "[ -d dist ] || mkdir dist && terser build/redis-client.js -c -m -o dist/redis-client.js --toplevel && cp build/redis-client.d.ts dist/",
     "test": "npm run lint && npm run cover"
   },
   "version": "1.1.3"

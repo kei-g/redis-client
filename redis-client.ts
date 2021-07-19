@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable indent */
 /* eslint-disable no-case-declarations */
 import { Socket } from 'net'
 

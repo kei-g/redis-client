@@ -39,7 +39,7 @@
     "url": "https://github.com/kei-g/redis-client.git"
   },
   "scripts": {
-    "build": "tsc && npm run terse",
+    "build": "npm run lint && tsc && npm run terse",
     "clean": "rm -fr .nyc_output/ build/ coverage/ dist/",
     "cover": "nyc -r html -r text _mocha",
     "lint": "eslint *.ts",

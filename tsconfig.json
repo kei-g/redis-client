@@ -2,6 +2,7 @@
   "compilerOptions": {
     "charset": "utf8",
     "declaration": true,
+    "declarationDir": "lib",
     "downlevelIteration": true,
     "lib": [
       "ES2015"

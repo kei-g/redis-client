@@ -14,7 +14,7 @@
     "removeComments": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES5",
+    "target": "ES6",
   },
   "files": [
     "redis-client.ts",

@@ -3,7 +3,9 @@
     "charset": "utf8",
     "declaration": true,
     "downlevelIteration": true,
-    "lib": [ "ES2015" ],
+    "lib": [
+      "ES2015"
+    ],
     "module": "CommonJS",
     "moduleResolution": "node",
     "newLine": "lf",

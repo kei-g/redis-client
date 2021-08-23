@@ -15,6 +15,9 @@
     "target": "ES5",
   },
   "files": [
-    "./redis-client.ts",
+    "redis-client.ts",
+  ],
+  "include": [
+    "redis-client.ts",
   ],
 }

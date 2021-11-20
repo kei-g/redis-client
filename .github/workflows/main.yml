@@ -19,6 +19,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Setup modules
-        run: npm i
+        run: npm install
       - name: Test
         run: npm test

@@ -2,7 +2,7 @@
 
 [![coverage][nyc-cov-image]][github-url] [![Dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (test)][github-test-image]][github-test-url] [![Travis][travis-image]][travis-url]
 
-Redis Client - minimal depencency
+`redis-client` - Indepencent redis client library
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/redis-client?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/redis-client?activeTab=dependencies

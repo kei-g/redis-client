@@ -10,7 +10,8 @@ jobs:
         node: [ '14.17.5', '16.13.0', '17.0.1' ]
     name: Test on Node.js ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:

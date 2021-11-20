@@ -22,3 +22,9 @@ jobs:
         run: npm install
       - name: Test
         run: npm test
+      - name: Report coverage
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report-${{ matrix.node }}
+          path: coverage

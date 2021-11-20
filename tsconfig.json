@@ -1,26 +1,27 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
     "charset": "utf8",
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": ".",
     "downlevelIteration": true,
+    "emitDeclarationOnly": true,
     "lib": [
       "ES2015"
     ],
     "module": "CommonJS",
     "moduleResolution": "node",
     "newLine": "lf",
-    "outDir": "build",
     "pretty": true,
     "removeComments": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES6",
+    "strictNullChecks": false,
+    "target": "ES2015",
   },
-  "files": [
-    "redis-client.ts",
+  "exclude": [
   ],
   "include": [
-    "redis-client.ts",
+    "src",
   ],
 }

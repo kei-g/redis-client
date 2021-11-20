@@ -1,4 +1,4 @@
-import { RedisClient } from '../redis-client'
+import { RedisClient } from '../src'
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
 

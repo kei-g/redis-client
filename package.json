@@ -33,10 +33,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kei-g/redis-client.git"
-  },
+  "repository": "github:kei-g/redis-client",
   "scripts": {
     "build": "run-p build:*",
     "build:bundle": "esbuild src/index.ts --bundle --minify --outfile=index.js --platform=node --target=ES2015",

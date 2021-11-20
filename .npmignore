@@ -1,7 +1,14 @@
 **/.*
 **/CODE_OF_CONDUCT.md
 **/CONTRIBUTING.md
+**/api-extractor.json
 **/coverage/
+**/dist/
+**/doc/
+**/etc/
 **/src/
+**/temp/
 **/test/
 **/tsconfig.json
+**/tsdoc-metadata.json
+**/util/

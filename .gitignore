@@ -2,7 +2,13 @@
 **/*.js
 **/.nyc_output/
 **/.vscode/
+**/api-extractor.json
 **/coverage/
+**/dist/
+**/doc/
+**/etc/
 **/lib/
 **/node_modules/
 **/package-lock.json
+**/temp/
+**/tsdoc-metadata.json

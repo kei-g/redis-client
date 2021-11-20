@@ -9,6 +9,5 @@
 **/etc/
 **/lib/
 **/node_modules/
-**/package-lock.json
 **/temp/
 **/tsdoc-metadata.json

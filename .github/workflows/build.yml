@@ -3,6 +3,7 @@ jobs:
     name: Build on Node.js ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         node:
           - '14.17.5'

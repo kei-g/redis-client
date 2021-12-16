@@ -40,7 +40,7 @@
   "repository": "github:kei-g/redis-client",
   "scripts": {
     "build": "run-p build:*",
-    "build:bundle": "esbuild src/index.ts --bundle --minify --outfile=index.js --platform=node --target=ES2015",
+    "build:bundle": "esbuild src/index.ts --bundle --format=cjs --minify --outfile=index.js --platform=node --target=ES2015",
     "build:doc": "run-s build:doc:ae:init build:doc:ae:fix build:doc:ae:mkdir build:doc:ae:run build:doc:ad:run build:doc:ad:clean",
     "build:doc:ad:clean": "rimraf api-extractor.json dist/ etc/ temp/ tsdoc-metadata.json",
     "build:doc:ad:run": "api-documenter markdown -i temp -o doc",

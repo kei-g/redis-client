@@ -41,3 +41,11 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+      - '.editorconfig'
+      - '.gitattributes'
+      - '.github/dependabot.yml'
+      - '.gitignore'
+      - '.travis.yml'
+      - 'LICENSE'

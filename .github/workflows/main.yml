@@ -1,9 +1,6 @@
-name: test
-on:
-  push:
-    branches: [ main ]
 jobs:
   test:
+    name: Test on Node.js ${{ matrix.node }}
     runs-on: ubuntu-latest
     services:
       redis:
@@ -16,7 +13,6 @@ jobs:
     strategy:
       matrix:
         node: [ '14.17.5', '16.13.0', '17.1.0' ]
-    name: Test on Node.js ${{ matrix.node }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -30,9 +26,14 @@ jobs:
         run: npm install
       - name: Test
         run: npm test
-      - name: Report coverage
-        if: ${{ always() }}
+      - if: ${{ always() }}
+        name: Report coverage
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report-${{ matrix.node }}
           path: coverage
+name: test
+on:
+  push:
+    branches:
+      - main

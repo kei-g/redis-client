@@ -11,7 +11,6 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     strategy:
-      fail-fast: false
       matrix:
         node:
           - '16.13.0'

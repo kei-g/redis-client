@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
           node-version: ${{ matrix.node }}
       - name: Setup modules
-        run: npm ci
+        run: npm install
       - name: Check code coverages
         run: npm test
       - if: ${{ always() }}

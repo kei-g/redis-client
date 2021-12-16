@@ -38,6 +38,15 @@ jobs:
           path: coverage
 name: test
 on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - '.editorconfig'
+      - '.gitattributes'
+      - '.github/dependabot.yml'
+      - '.gitignore'
+      - '.travis.yml'
+      - 'LICENSE'
   push:
     branches:
       - main

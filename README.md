@@ -1,13 +1,13 @@
 # redis-client [![License][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![Dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (test)][github-test-image]][github-test-url] [![Travis][travis-image]][travis-url]
+[![coverage][nyc-cov-image]][github-url] [![Dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] [![Travis][travis-image]][travis-url]
 
 `redis-client` - Indepencent redis client library
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/redis-client?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/redis-client?activeTab=dependencies
-[github-test-image]:https://github.com/kei-g/redis-client/actions/workflows/main.yml/badge.svg
-[github-test-url]:https://github.com/kei-g/redis-client/actions/workflows/main.yml
+[github-coverage-image]:https://github.com/kei-g/redis-client/actions/workflows/coverage.yml/badge.svg
+[github-coverage-url]:https://github.com/kei-g/redis-client/actions/workflows/coverage.yml
 [github-url]:https://github.com/kei-g/redis-client
 [license-image]:https://img.shields.io/github/license/kei-g/redis-client
 [license-url]:https://opensource.org/licenses/BSD-3-Clause

@@ -34,7 +34,7 @@ jobs:
         name: Report coverage
         uses: actions/upload-artifact@v2
         with:
-          name: code-coverage-report-${{ matrix.node }}
+          name: code-coverage-report-${{ github.event.repository.name }}-${{ matrix.node }}
           path: coverage
 name: test
 on:

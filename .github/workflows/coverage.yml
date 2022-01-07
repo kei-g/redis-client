@@ -15,6 +15,7 @@ jobs:
     strategy:
       matrix:
         node:
+          - '14.17.5'
           - '16.13.0'
           - '17.1.0'
     steps:

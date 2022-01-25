@@ -1,8 +1,13 @@
 # redis-client [![License][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![Dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Build)][github-build-image]][github-build-url] [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url]
+[![coverage][nyc-cov-image]][github-url] [![Dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url]
 
 `redis-client` - Indepencent redis client library
+
+| CI Status |
+| ---- |
+| [![GitHub CI (Build)][github-build-image]][github-build-url] |
+| [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] |
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/redis-client?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/redis-client?activeTab=dependencies

@@ -4,10 +4,11 @@
 
 `redis-client` - A library of redis client independent from other packages
 
-| CI Status |
-| ---- |
-| [![GitHub CI (Build)][github-build-image]][github-build-url] |
-| [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] |
+## CI Status
+
+| Branch | Build | Coverage |
+| ---- | ---- | ---- |
+| **main** | [![GitHub CI (Build)][github-build-image]][github-build-url] | [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] |
 
 ## Installation
 

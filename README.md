@@ -15,6 +15,18 @@
 npm i @kei-g/redis-client --save
 ```
 
+## Lincense
+
+The scripts and documentation in this project are released under the [BSD-3-Clause License](https://github.com/kei-g/redis-client/blob/main/LICENSE)
+
+## Contributions
+
+Contributions are welcome! See [Contributor's Guide](https://github.com/kei-g/redis-client/blob/main/CONTRIBUTING.md)
+
+### Code of Conduct
+
+:clap: Be nice. See [our code of conduct](https://github.com/kei-g/redis-client/blob/main/CODE_OF_CONDUCT.md)
+
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/redis-client?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/redis-client?activeTab=dependencies
 [github-build-image]:https://github.com/kei-g/redis-client/actions/workflows/build.yml/badge.svg

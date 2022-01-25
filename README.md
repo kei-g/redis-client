@@ -9,6 +9,12 @@
 | [![GitHub CI (Build)][github-build-image]][github-build-url] |
 | [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] |
 
+## Installation
+
+```shell
+npm i @kei-g/redis-client --save
+```
+
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/redis-client?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/redis-client?activeTab=dependencies
 [github-build-image]:https://github.com/kei-g/redis-client/actions/workflows/build.yml/badge.svg

@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/kei-g/redis-client/issues"
   },
-  "description": "Independent redis client library",
+  "description": "A library of redis client independent from other packages",
   "devDependencies": {
     "@microsoft/api-documenter": "^7.15.1",
     "@microsoft/api-extractor": "^7.19.4",

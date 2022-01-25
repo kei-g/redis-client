@@ -2,7 +2,7 @@
 
 [![coverage][nyc-cov-image]][github-url] [![Dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url]
 
-`redis-client` - Indepencent redis client library
+`redis-client` - A library of redis client independent from other packages
 
 | CI Status |
 | ---- |

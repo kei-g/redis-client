@@ -13,6 +13,7 @@ jobs:
         ports:
           - 6379:6379
     strategy:
+      fail-fast: false
       matrix:
         node:
           - '14.17.5'

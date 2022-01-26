@@ -8,9 +8,10 @@
 - :arrow_up: Packages for development are bumped
   - `@types/chai` is bumped from 4.2.2 to 4.3.0
   - `@types/mocha` is bumped from 9.0.0 to 9.1.0
-  - `@types/node` is bumped from 16.11.6 to 17.0.11
+  - `@types/node` is bumped from 16.11.6 to 17.0.12
   - `@typescript-eslint/eslint-plugin` is bumped from 5.3.0 to 5.9.0
   - `@typescript-eslint/parser` is bumped from 5.3.0 to 5.9.0
+  - `chai` is bumped from 4.3.4 to 4.3.5
   - `eslint` is bumped from 8.2.0 to 8.7.0
   - `mocha` is bumped from 9.1.3 to 9.2.0
   - `typescript` is bumped from 4.4.4 to 4.5.5

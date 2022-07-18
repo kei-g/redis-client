@@ -17,7 +17,7 @@
     "@typescript-eslint/parser": "^5.19.0",
     "chai": "^4.3.6",
     "esbuild": "^0.14.36",
-    "eslint": "^8.13.0",
+    "eslint": "^8.20.0",
     "libfsasync": "^1.0.7",
     "mkdirp": "^1.0.4",
     "mocha": "^9.2.2",

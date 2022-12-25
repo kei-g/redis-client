@@ -16,7 +16,7 @@
 npm i @kei-g/redis-client --save
 ```
 
-## Lincense
+## License
 
 The scripts and documentation in this project are released under the [BSD-3-Clause License](https://github.com/kei-g/redis-client/blob/main/LICENSE)
 

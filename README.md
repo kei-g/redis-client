@@ -6,9 +6,9 @@
 
 ## CI Status
 
-| Branch | Build | Coverage |
-| ---- | ---- | ---- |
-| **main** | [![GitHub CI (Build)][github-build-image]][github-build-url] | [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] |
+| Branch | Build | CodeQL | Coverage |
+| ---- | ---- | ---- | ---- |
+| **main** | [![GitHub CI (Build)][github-build-image]][github-build-url] | [![GitHub CI (CodeQL)][github-codeql-image]][github-codeql-url] | [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] |
 
 ## Installation
 
@@ -32,6 +32,8 @@ Contributions are welcome! See [Contributor's Guide](https://github.com/kei-g/re
 [dependency-url]:https://npmjs.com/package/@kei-g/redis-client?activeTab=dependencies
 [github-build-image]:https://github.com/kei-g/redis-client/actions/workflows/build.yml/badge.svg
 [github-build-url]:https://github.com/kei-g/redis-client/actions/workflows/build.yml
+[github-codeql-image]:https://github.com/kei-g/redis-client/actions/workflows/codeql.yml/badge.svg
+[github-codeql-url]:https://github.com/kei-g/redis-client/actions/workflows/codeql.yml
 [github-coverage-image]:https://github.com/kei-g/redis-client/actions/workflows/coverage.yml/badge.svg
 [github-coverage-url]:https://github.com/kei-g/redis-client/actions/workflows/coverage.yml
 [github-url]:https://github.com/kei-g/redis-client

@@ -1,5 +1,6 @@
 jobs:
   coverage:
+    if: github.ref_type == 'branch'
     name: Check code coverages
     runs-on: ubuntu-latest
     services:

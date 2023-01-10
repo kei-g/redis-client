@@ -18,7 +18,7 @@
     "chai": "^4.3.7",
     "esbuild": "^0.16.12",
     "eslint": "^8.31.0",
-    "libfsasync": "^1.0.8",
+    "libfsasync": "^1.0.10",
     "mkdirp": "^1.0.4",
     "mocha": "^10.2.0",
     "npm-run-all": "^4.1.5",

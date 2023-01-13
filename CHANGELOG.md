@@ -5,15 +5,23 @@
 - :building_construction: Build system is migrated from `terser` to `esbuild`
 - :green_heart: CI/CD is improved
 - :memo: Documents are updated
+- :heavy_plus_sign: New packages for development are added
+  - `@microsoft/api-documenter` 7.19.27 is added
+  - `@microsoft/api-extractor` 7.33.7 is added
+  - `esbuild` 0.16.17 is added
+  - `libfsasync` 1.0.11 is added
+  - `mkdirp` 1.0.4 is added
+  - `npm-run-all` 4.1.5 is added
 - :arrow_up: Packages for development are bumped
   - `@types/chai` is bumped from 4.2.2 to 4.3.4
   - `@types/mocha` is bumped from 9.0.0 to 10.0.1q
-  - `@types/node` is bumped from 16.11.6 to 18.11.17
-  - `@typescript-eslint/eslint-plugin` is bumped from 5.3.0 to 5.47.0
-  - `@typescript-eslint/parser` is bumped from 5.3.0 to 5.47.0
+  - `@types/node` is bumped from 16.11.6 to 18.11.18
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.3.0 to 5.48.1
+  - `@typescript-eslint/parser` is bumped from 5.3.0 to 5.48.1
   - `chai` is bumped from 4.3.4 to 4.3.7
-  - `eslint` is bumped from 8.2.0 to 8.30.0
+  - `eslint` is bumped from 8.2.0 to 8.31.0
   - `mocha` is bumped from 9.1.3 to 10.2.0
+  - `rimraf` is bumped from 3.0.2 to 4.0.4
   - `ts-node` is bumped from 10.4.0 to 10.9.1
   - `typescript` is bumped from 4.4.4 to 4.9.4
 

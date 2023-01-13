@@ -45,4 +45,8 @@ jobs:
 name: Coverage
 on:
   pull_request:
+    branches:
+      - '**'
   push:
+    branches:
+      - '**'

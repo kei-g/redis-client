@@ -19,10 +19,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          cache: 'npm'
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@kei-g'
+          cache: npm
+          node-version: latest
+          registry-url: https://registry.npmjs.org
       - name: Upgrade npm
         run: npm install npm@latest -g
       - name: Setup modules

@@ -475,6 +475,56 @@ export class RedisClient {
     return this.push('WATCH', ...keys)
   }
 
+  xadd(key: string, value: Record<string | symbol, bigint | number | string> | bigint | number | string): Promise<Error | string> {
+    switch (typeof value) {
+      case 'bigint':
+      case 'number':
+      case 'string':
+        return this.push('XADD', key, '*', 'value', value)
+      case 'object':
+        const args = [] as unknown[]
+        for (const key in value) {
+          args.push(key)
+          args.push(value[key])
+        }
+        return this.push('XADD', key, '*', ...args)
+    }
+  }
+
+  xlen(key: string): Promise<Error | number> {
+    return this.push('XLEN', key)
+  }
+
+  async xrange<T>(key: string, count?: number): Promise<Error | Record<string, T>> {
+    const fieldsAndValues = count === undefined ? await this.push<RedisPrimitiveReply[]>('XRANGE', key, '-', '+') : await this.push<RedisPrimitiveReply[]>('XRANGE', key, '-', '+', 'COUNT', count)
+    const result = {} as Record<string, T>
+    const ctx = { last: undefined as T }
+    for (let i = 0; i < fieldsAndValues.length; i++) {
+      const fv = fieldsAndValues[i]
+      if (typeof fv === 'string')
+        if (fv.match(/^\d+-\d$/))
+          result[fv] = ctx.last = {} as T
+        else
+          (ctx.last as unknown as Record<string, unknown>)[fv] = fieldsAndValues[++i]
+    }
+    return result
+  }
+
+  async xrevrange<T>(key: string, count?: number): Promise<Error | Record<string, T>> {
+    const fieldsAndValues = count === undefined ? await this.push<RedisPrimitiveReply[]>('XREVRANGE', key, '+', '-') : await this.push<RedisPrimitiveReply[]>('XREVRANGE', key, '+', '-', 'COUNT', count)
+    const result = {} as Record<string, T>
+    const ctx = { last: undefined as T }
+    for (let i = 0; i < fieldsAndValues.length; i++) {
+      const fv = fieldsAndValues[i]
+      if (typeof fv === 'string')
+        if (fv.match(/^\d+-\d$/))
+          result[fv] = ctx.last = {} as T
+        else
+          (ctx.last as unknown as Record<string, unknown>)[fv] = fieldsAndValues[++i]
+    }
+    return result
+  }
+
   zadd(key: string, score: number, member: number | string): Promise<Error | number> {
     return this.push('ZADD', key, score, member)
   }

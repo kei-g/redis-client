@@ -4,6 +4,11 @@
 import { Socket } from 'net'
 
 /**
+ * コマンド組み立て関数の型
+ */
+type CommandComposer = (arg: unknown) => string
+
+/**
  * Redisクライアント
  */
 export class RedisClient {
@@ -72,19 +77,8 @@ export class RedisClient {
    */
   private compose(command: string, ...args: any[]): string {
     const bulks = args?.filter((arg: any) => !['function', 'object', 'symbol'].includes(typeof arg))?.map((arg: any) => {
-      switch (typeof arg) {
-        case 'bigint':
-        case 'number':
-          const length = `${arg}`.length
-          return `$${length}\r\n${arg}\r\n`
-        case 'boolean':
-          return `$1\r\n${arg ? 1 : 0}\r\n`
-        case 'string':
-          const u8 = Buffer.from(arg)
-          return `$${u8.byteLength}\r\n${arg}\r\n`
-        case 'undefined':
-          return '$-1\r\n'
-      }
+      const composer = commandComposers[typeof arg] as unknown as CommandComposer
+      return composer && composer(arg)
     }) ?? []
     return `*${bulks.length + 1}\r\n$${command.length}\r\n${command}\r\n${bulks.join('')}`
   }
@@ -660,6 +654,46 @@ type RedisRequestQueue = {
    * 送信済み
    */
   sent: RedisRequest<any>[]
+}
+
+/**
+ * Booleanのコマンドを組み立てる
+ */
+const composeBoolean = (arg: boolean) => `$1\r\n${arg ? 1 : 0}\r\n`
+
+/**
+ * 数値のコマンドを組み立てる
+ */
+const composeNumber = (arg: bigint | number) => {
+  const text = arg.toString()
+  return `$${text.length}\r\n${text}\r\n`
+}
+
+/**
+ * 文字列のコマンドを組み立てる
+ */
+const composeString = (arg: string) => {
+  const u8 = Buffer.from(arg)
+  return `$${u8.byteLength}\r\n${arg}\r\n`
+}
+
+/**
+ * undefinedのコマンドを組み立てる
+ */
+const composeUndefined = () => '$-1\r\n'
+
+/**
+ * コマンド組み立て関数の連想配列
+ */
+const commandComposers = {
+  bigint: composeNumber,
+  boolean: composeBoolean,
+  function: () => '',
+  number: composeNumber,
+  object: () => '',
+  string: composeString,
+  symbol: composeString,
+  undefined: composeUndefined,
 }
 
 /**

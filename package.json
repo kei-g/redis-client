@@ -55,7 +55,7 @@
     "postpublish": "run-s clean",
     "prebuild": "run-p clean lint",
     "prepublishOnly": "run-s build",
-    "test": "run-p cover lint"
+    "test": "run-s cover lint"
   },
   "types": "index.d.ts",
   "version": "1.1.5"

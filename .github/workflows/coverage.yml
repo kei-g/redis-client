@@ -33,7 +33,8 @@ jobs:
       - name: Setup modules
         run: npm ci
       - name: Check code coverages
-        run: npm test
+        run: |
+          NODE_OPTIONS="--max-old-space-size=8192" npm test
       - if: ${{ always() }}
         name: Archive code coverages report
         uses: actions/upload-artifact@v3

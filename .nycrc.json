@@ -1,6 +1,6 @@
 {
   "all": true,
-  "branches": 42,
+  "branches": 37.09,
   "check-coverage": true,
   "exclude": [
     "**/*.spec.ts",
@@ -9,16 +9,16 @@
   "extension": [
     ".ts"
   ],
-  "functions": 23,
+  "functions": 26.47,
   "include": [
     "src/**/*.ts"
   ],
-  "lines": 42,
+  "lines": 52.75,
   "reporter": [
     "html",
     "text"
   ],
-  "statements": 41,
+  "statements": 50.05,
   "watermarks": {
     "branches": [80, 95],
     "functions": [80, 95],

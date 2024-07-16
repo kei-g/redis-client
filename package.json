@@ -9,7 +9,7 @@
   "description": "A library of redis client independent from other packages",
   "devDependencies": {
     "@microsoft/api-documenter": "^7.25.5",
-    "@microsoft/api-extractor": "^7.47.0",
+    "@microsoft/api-extractor": "^7.47.1",
     "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.7",
     "@types/node": "^20.14.11",

@@ -10,7 +10,7 @@
   "devDependencies": {
     "@microsoft/api-documenter": "^7.25.12",
     "@microsoft/api-extractor": "^7.47.7",
-    "@types/chai": "^4.3.18",
+    "@types/chai": "^4.3.19",
     "@types/mocha": "^10.0.7",
     "@types/node": "^22.5.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",

@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-case-declarations */
+/* eslint-disable no-unused-vars */
+
 import { Socket } from 'net'
 
 /**

@@ -18,11 +18,23 @@
     "html",
     "text"
   ],
-  "statements": 50.05,
+  "statements": 50.5,
   "watermarks": {
-    "branches": [80, 95],
-    "functions": [80, 95],
-    "lines": [80, 95],
-    "statements": [80, 95]
+    "branches": [
+      80,
+      95
+    ],
+    "functions": [
+      80,
+      95
+    ],
+    "lines": [
+      80,
+      95
+    ],
+    "statements": [
+      80,
+      95
+    ]
   }
 }

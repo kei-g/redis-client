@@ -1,6 +1,6 @@
+import assert, { equal } from 'node:assert'
 import { RedisClient } from '../src'
 import { describe, it } from 'mocha'
-import { expect } from 'chai'
 
 type Foo = {
   value: string
@@ -12,31 +12,31 @@ db.on('connected', async () => {
   describe('stream - single', () => {
     it('add', async () => {
       const id = await db.xadd('foo-stream', 'foo')
-      expect(typeof id).equal('string')
+      equal(typeof id, 'string')
     })
     it('len', async () => {
       const len = await db.xlen('foo-stream')
-      expect(typeof len).equal('number')
-      expect(len).equal(1)
+      equal(typeof len, 'number')
+      equal(len, 1)
     })
     it('range', async () => {
       const res = await db.xrange<Foo>('foo-stream')
-      expect(typeof res).equal('object')
+      equal(typeof res, 'object')
       if (!(res instanceof Error))
         for (const id in res) {
           if (res[id] instanceof Error)
             continue
-          expect(res[id].value).equal('foo')
+          equal(res[id].value, 'foo')
         }
     })
     it('reverse range', async () => {
       const res = await db.xrevrange<Foo>('foo-stream')
-      expect(typeof res).equal('object')
+      equal(typeof res, 'object')
       if (!(res instanceof Error))
         for (const id in res) {
           if (res[id] instanceof Error)
             continue
-          expect(res[id].value).equal('foo')
+          equal(res[id].value, 'foo')
         }
     })
   })
@@ -45,28 +45,28 @@ db.on('connected', async () => {
   describe('stream - multiple', () => {
     it('add', async () => {
       const first = await db.xadd('bar-stream', 'fizz')
-      expect(typeof first).equal('string')
+      equal(typeof first, 'string')
       const second = await db.xadd('bar-stream', 'buzz')
-      expect(typeof second).equal('string')
+      equal(typeof second, 'string')
     })
     it('len', async () => {
       const len = await db.xlen('bar-stream')
-      expect(typeof len).equal('number')
-      expect(len).equal(2)
+      equal(typeof len, 'number')
+      equal(len, 2)
     })
     it('range', async () => {
       const res = await db.xrange<Foo>('bar-stream')
-      expect(typeof res).equal('object')
+      equal(typeof res, 'object')
       if (!(res instanceof Error))
         for (const id in res)
-          expect(res[id]).not.instanceof(Error)
+          assert(!(res[id] instanceof Error))
     })
     it('reverse range', async () => {
       const res = await db.xrevrange<Foo>('bar-stream')
-      expect(typeof res).equal('object')
+      equal(typeof res, 'object')
       if (!(res instanceof Error))
         for (const id in res)
-          expect(res[id]).not.instanceof(Error)
+          assert(!(res[id] instanceof Error))
     })
   })
   await db.del('bar-stream')

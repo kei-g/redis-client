@@ -12,7 +12,7 @@
     "@microsoft/api-extractor": "^7.52.10",
     "@types/eslint": "^9.6.1",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "esbuild": "^0.25.9",
     "esbuild-register": "^3.6.0",
     "eslint": "^9.33.0",

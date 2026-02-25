@@ -8,7 +8,7 @@
   },
   "description": "A library of redis client independent from other packages",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.29.3",
+    "@microsoft/api-documenter": "^7.29.6",
     "@microsoft/api-extractor": "^7.57.6",
     "@types/eslint": "^9.6.1",
     "@types/mocha": "^10.0.10",

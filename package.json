@@ -50,6 +50,7 @@
     "clean": "rimraf .nyc_output/ api-extractor.json coverage/ dist/ doc/ etc/ index.d.ts index.js lib/ temp/ tsdoc-metadata.json",
     "cover": "nyc --check-coverage -r html -r text _mocha",
     "lint": "eslint src/**/*.ts",
+    "postbuild:tsc": "tar -C types/src -cf - . | tar -xf - && rm -fr types",
     "postpublish": "run-s clean",
     "prebuild": "run-p clean lint",
     "prepublishOnly": "run-s build",

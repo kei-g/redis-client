@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import { Socket } from 'net'
+import { Socket } from 'node:net'
 
 /**
  * コマンド組み立て関数の型
@@ -77,7 +77,7 @@ export class RedisClient {
   private compose(command: string, ...args: any[]): string {
     const bulks = args?.filter((arg: any) => !['function', 'object', 'symbol'].includes(typeof arg))?.map((arg: any) => {
       const composer = commandComposers[typeof arg] as unknown as CommandComposer
-      return composer && composer(arg)
+      return composer?.(arg)
     }) ?? []
     return `*${bulks.length + 1}\r\n$${command.length}\r\n${command}\r\n${bulks.join('')}`
   }
@@ -480,13 +480,14 @@ export class RedisClient {
       case 'number':
       case 'string':
         return this.push('XADD', key, '*', 'value', value)
-      case 'object':
+      case 'object': {
         const args = [] as unknown[]
         for (const key in value) {
           args.push(key)
           args.push(value[key])
         }
         return this.push('XADD', key, '*', ...args)
+      }
     }
   }
 
@@ -762,7 +763,7 @@ function parseReplyLine(context: RedisReplyContext): RedisReply {
       return new Error(readLine(context))
     case ':':
       return Number.parseInt(readLine(context))
-    case '$':
+    case '$': {
       const length = Number.parseInt(readLine(context))
       if (length < 0)
         return null
@@ -771,12 +772,13 @@ function parseReplyLine(context: RedisReplyContext): RedisReply {
       const data = context.data.slice(context.offset, context.offset + length)
       context.offset += length + 2
       const dataString = data.toString(context.charset)
-      if (/^[\\+\\-]?[0-9]+$/.test(dataString))
+      if (/^[\\+-]?[0-9]+$/.test(dataString))
         return Number.parseInt(dataString, 10)
-      if (/^[\\+\\-]?[0-9]*\.[0-9]+$/.test(dataString))
+      if (/^[\\+-]?[0-9]*\.[0-9]+$/.test(dataString))
         return Number.parseFloat(dataString)
       return dataString
-    case '*':
+    }
+    case '*': {
       const num = Number.parseInt(readLine(context))
       if (num < 0)
         return null
@@ -785,12 +787,13 @@ function parseReplyLine(context: RedisReplyContext): RedisReply {
         const reply = parseReplyLine(context)
         if (reply === null)
           continue
-        else if (reply instanceof Array)
+        else if (Array.isArray(reply))
           multibulkreply.push(...reply)
         else
           multibulkreply.push(reply)
       }
       return multibulkreply
+    }
     default:
       throw new Error(`unknown reply type, ${type}`)
   }
